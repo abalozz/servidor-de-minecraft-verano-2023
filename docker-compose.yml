@@ -1,0 +1,22 @@
+services:
+  minecraft:
+    image: itzg/minecraft-server:java20-alpine
+    environment:
+      EULA: TRUE
+      MOTD: Minecra
+      DIFFICULTY: hard
+      WHITELIST: nuzkito
+      OPS: nuzkito
+      INITIAL_ENABLED_PACKS: bundle
+      MAX_WORLD_SIZE: 2000
+      SNOOPER_ENABLED: false
+      SPAWN_PROTECTION: 0
+      MODE: survival
+      VERSION: "1.20"
+      MEMORY: 4G
+      ENABLE_RCON: false
+    ports:
+      - "25565:25565"
+    volumes:
+      - ./datapacks:/data/world/datapacks
+    restart: unless-stopped
